@@ -12,7 +12,7 @@ class Team {
     public $team_color;
     public $desc;
 
-    public function __construct(string $name, $photo, $sport, $country, $team_color, $desc)
+    public function __construct($data)
     {
         $this->name = $name;
         $this->photo = $photo;

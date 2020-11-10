@@ -1,6 +1,7 @@
 <?php
-namespace TheRealMVP;
-require_once '../vendor/autoload.php';
+require 'vendor/autoload.php';
+use TheRealMVP\TeamHydrator;
+
 
 
 $select_query = ("SELECT teams.`name`, teams.`photo`, teams.`team_color`, teams.`desc`, sports.`name` AS `sport`, countries.`name` AS `country`
@@ -8,6 +9,7 @@ $select_query = ("SELECT teams.`name`, teams.`photo`, teams.`team_color`, teams.
     INNER JOIN `sports` ON teams.`sport`= sports.`id`
     INNER JOIN `countries` ON teams.`country`=countries.`id`;");
 
-$connection = dbConn::connect();
-$data = dbGetData::getData($connection, $select_query);
-DisplayData::displayTeams($data);
+
+$data = TeamHydrator::getData($select_query);
+\TheRealMVP\DisplayData::displayTeams($data);
+
