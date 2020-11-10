@@ -1,5 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed%7CRoboto+Slab:700');
+
 body {
   background: #111111;
+  min-height: 100vh;
   color: #eee;
   font-size: 25px;
+  font-family: 'Roboto Slab', serif;
+  text-align: center;
+}
+
+header {
+
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+  section {
+    padding: 20px;
+
+    h2 {
+      height: 30px;
+      line-height: 30px;
+      font-size: 1rem;
+      background: #333333;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+    }
+
+    img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      font-size: 0.8rem;
+      line-height: 1.4rem;
+      text-align: left;
+    }
+  }
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  font-size: 1rem;
+    img {
+    width: 50px;
+      padding: 10px;
+  }
 }
