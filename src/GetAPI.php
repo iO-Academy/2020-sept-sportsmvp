@@ -2,7 +2,6 @@
 
 namespace TheRealMVP;
 
-
 class GetAPI
 {
     public function __construct()
