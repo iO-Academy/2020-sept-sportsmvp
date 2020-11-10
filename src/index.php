@@ -1,10 +1,8 @@
 <?php
-
+namespace TheRealMVP;
 //require_once '../vendor/autoload.php';
 require_once 'dbConn.php';
 require_once 'dbGetData.php';
-
-
 
 class Team {
     public $name;
@@ -32,16 +30,26 @@ class TeamHydrator {
     }
 }
 
-
-function displayTeams($data) {
-    foreach($data as $displayTeam) {
-        echo "<div>"
-        . "<p>" . $displayTeam['name'] . "</p>"
-        . "<p>" . $displayTeam['photo'] . "</p>"
-        . "<p>" . $displayTeam['sport'] . "</p>"
-        . "<p>" . $displayTeam['country'] . "</p>"
-        . "<p>" . $displayTeam['team_color'] . "</p>"
-        . "<p>" . $displayTeam['desc'] . "</p>" . "</div>";
+class DisplayData{
+    public static function displayTeams($data)
+    {
+        foreach ($data as $displayTeam) {
+            echo "<div>"
+                . "<p>" . $displayTeam['name'] . "</p>"
+                . "<p>" . $displayTeam['photo'] . "</p>"
+                . "<p>" . $displayTeam['sport'] . "</p>"
+                . "<p>" . $displayTeam['country'] . "</p>"
+                . "<p>" . $displayTeam['team_color'] . "</p>"
+                . "<p>" . $displayTeam['desc'] . "</p>" . "</div>";
+        }
     }
 }
-displayTeams($data);
+
+$select_query = ("SELECT teams.`name`, teams.`photo`, teams.`team_color`, teams.`desc`, sports.`name` AS `sport`, countries.`name` AS `country`
+    FROM `teams` 
+    INNER JOIN `sports` ON teams.`sport`= sports.`id`
+    INNER JOIN `countries` ON teams.`country`=countries.`id`;");
+
+$connection = dbConn::connect();
+$data = dbGetData::getData($connection, $select_query);
+DisplayData::displayTeams($data);
