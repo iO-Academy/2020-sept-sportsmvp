@@ -1,35 +1,76 @@
+$primary-color: #040016;
+$secondary-color: #eeeeee;
+$highlight-color: rgb(6, 78, 235);
+
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed%7CRoboto+Slab:700');
 
 body {
-  background: #111111;
+  background-image: url('https://source.unsplash.com/1600x900/?sport,basketball, football, games');
+  background-attachment: fixed;
+  background-position: cover center;
+  background-repeat: no-repeat;
+  background-color: $primary-color;
+  background-blend-mode: color-dodge;
   min-height: 100vh;
-  color: #eee;
-  font-size: 25px;
+  color: $secondary-color;
   font-family: 'Roboto Slab', serif;
   text-align: center;
 }
 
-header {
-
+h1 {
+  font-family: 'Roboto Slab', serif;
+  font-size: 4rem;
+  font-style: italic;
+  text-transform: uppercase;
+  margin-top: 20px;
+  line-height: 100px;
+  letter-spacing: 1rem;
+  color: $primary-color;
+  text-shadow: -2px -2px 0 white, 2px -2px 0 white,
+    -2px 2px 0 white, 2px 2px 0 white;
 }
 
 main {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(375px, 1fr)
+  );
+  margin: 50px;
 
   section {
-    padding: 20px;
+    margin: 36px;
+    padding: 10px 10px 30px 10px;
+    background-color: $primary-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    h2 {
-      height: 30px;
+    button {
+      appearance: none;
+      border: 0;
+      width: 100%;
+      height: 50px;
       line-height: 30px;
-      font-size: 1rem;
-      background: #333333;
+      font-size: 1.4rem;
+      color: $secondary-color;
+      background: $primary-color;
+
+      &:hover {
+        background: $highlight-color;
+        cursor: pointer;
+      }
     }
 
     .content {
+      background-color: $primary-color;
       display: grid;
-      grid-template-columns: 120px 1fr;
+      grid-template-columns: 80px 1fr;
+      grid-gap: 40px;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
     }
 
     img {
@@ -54,8 +95,20 @@ footer {
   align-items: center;
   padding-top: 50px;
   font-size: 1rem;
-    img {
+
+  img {
     width: 50px;
-      padding: 10px;
+    padding: 10px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  main {
+    margin: 0;
+
+    section {
+      margin: 0 0 70px 0;
+      padding: 0;
+    }
   }
 }
