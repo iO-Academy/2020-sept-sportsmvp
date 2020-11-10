@@ -2,7 +2,6 @@
 
 namespace TheRealMVP;
 
-
 class GetAPI
 {
     public function __construct()
@@ -13,5 +12,6 @@ class GetAPI
         $apiData = curl_exec($curlConnection);
         curl_close($curlConnection);
         $json = json_decode($apiData, true);
+        print_r($json);
     }
 }
