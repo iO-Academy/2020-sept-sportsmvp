@@ -14,164 +14,86 @@
 <header>
     <h1>The Real MVP</h1>
 </header>
-<form action="#" method="GET">
-<main>    
-<section>
-        <button>FC Barcelona</button>
-        <div class="content">
-            <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/canucks.png" />
+<main>
+    <a href="#">
+        <section>
+            <h2>FC Barcelona</h2>
+            <div class="content">
+                <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/canucks.png" />
                 <ul>
                     <li>Sport: Football</li>
                     <li>Country: UK</li>
                     <li>Team colours: Red/Yellow</li>
                 </ul>
-        </div>
-    </section>
-    <section>
-        <button>FC Barcelona</button>
-        <div class="content">
-            <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/bruins.png" />
+            </div>
+        </section>
+    </a>
+    <a href="#">
+        <section>
+            <h2>Man U</h2>
+            <div class="content">
+                <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/fcb.png" />
                 <ul>
                     <li>Sport: Football</li>
                     <li>Country: UK</li>
                     <li>Team colours: Red/Yellow</li>
                 </ul>
-        </div>
-    </section>
-    <section>
-        <button>FC Barcelona</button>
-        <div class="content">
-            <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/canucks.png" />
+            </div>
+        </section>
+    </a>
+    <a href="#">
+        <section>
+            <h2>FC Barcelona</h2>
+            <div class="content">
+                <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/canucks.png" />
                 <ul>
                     <li>Sport: Football</li>
                     <li>Country: UK</li>
                     <li>Team colours: Red/Yellow</li>
                 </ul>
-        </div>
-    </section>
-    <section>
-        <button>FC Barcelona</button>
-        <div class="content">
-            <img src= "https://dev.maydenacademy.co.uk/resources/sports_teams/canada-chessbrahs.png"/>
+            </div>
+        </section>
+    </a>
+    <a href="#">
+        <section>
+            <h2>Man U</h2>
+            <div class="content">
+                <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/fcb.png" />
                 <ul>
                     <li>Sport: Football</li>
                     <li>Country: UK</li>
                     <li>Team colours: Red/Yellow</li>
                 </ul>
-        </div>
-    </section>
-    <section>
-        <button>FC Barcelona</button>
-        <div class="content">
-            <img src= "https://dev.maydenacademy.co.uk/resources/sports_teams/canada-chessbrahs.png" />
+            </div>
+        </section>
+    </a>
+    <a href="#">
+        <section>
+            <h2>FC Barcelona</h2>
+            <div class="content">
+                <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/man_utd.png" />
                 <ul>
                     <li>Sport: Football</li>
                     <li>Country: UK</li>
                     <li>Team colours: Red/Yellow</li>
                 </ul>
-        </div>
-    </section>
-    <section>
-        <button>FC Barcelona</button>
-        <div class="content">
-            <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/cka.png" />
+            </div>
+        </section>
+    </a>
+    <a href="#">
+        <section>
+            <h2>Man U</h2>
+            <div class="content">
+                <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/fcb.png" />
                 <ul>
                     <li>Sport: Football</li>
                     <li>Country: UK</li>
                     <li>Team colours: Red/Yellow</li>
                 </ul>
-        </div>
-    </section>
-    <section>
-        <button>FC Barcelona</button>
-        <div class="content">
-            <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/man_utd.png" />
-                <ul>
-                    <li>Sport: Football</li>
-                    <li>Country: UK</li>
-                    <li>Team colours: Red/Yellow</li>
-                </ul>
-        </div>
-    </section>
-    <section>
-        <button>FC Barcelona</button>
-        <div class="content">
-            <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/canucks.png" />
-                <ul>
-                    <li>Sport: Football</li>
-                    <li>Country: UK</li>
-                    <li>Team colours: Red/Yellow</li>
-                </ul>
-        </div>
-    </section>
-    <section>
-        <button>FC Barcelona</button>
-        <div class="content">
-            <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/bruins.png" />
-                <ul>
-                    <li>Sport: Football</li>
-                    <li>Country: UK</li>
-                    <li>Team colours: Red/Yellow</li>
-                </ul>
-        </div>
-    </section>
-    <section>
-        <button>FC Barcelona</button>
-        <div class="content">
-            <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/canucks.png" />
-                <ul>
-                    <li>Sport: Football</li>
-                    <li>Country: UK</li>
-                    <li>Team colours: Red/Yellow</li>
-                </ul>
-        </div>
-    </section>
-    <section>
-        <button>FC Barcelona</button>
-        <div class="content">
-            <img src= "https://dev.maydenacademy.co.uk/resources/sports_teams/canada-chessbrahs.png"/>
-                <ul>
-                    <li>Sport: Football</li>
-                    <li>Country: UK</li>
-                    <li>Team colours: Red/Yellow</li>
-                </ul>
-        </div>
-    </section>
-    <section>
-        <button>FC Barcelona</button>
-        <div class="content">
-            <img src= "https://dev.maydenacademy.co.uk/resources/sports_teams/canada-chessbrahs.png" />
-                <ul>
-                    <li>Sport: Football</li>
-                    <li>Country: UK</li>
-                    <li>Team colours: Red/Yellow</li>
-                </ul>
-        </div>
-    </section>
-    <section>
-        <button>FC Barcelona</button>
-        <div class="content">
-            <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/cka.png" />
-                <ul>
-                    <li>Sport: Football</li>
-                    <li>Country: UK</li>
-                    <li>Team colours: Red/Yellow</li>
-                </ul>
-        </div>
-    </section>
-    <section>
-        <button>FC Barcelona</button>
-        <div class="content">
-            <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/man_utd.png" />
-                <ul>
-                    <li>Sport: Football</li>
-                    <li>Country: UK</li>
-                    <li>Team colours: Red/Yellow</li>
-                </ul>
-        </div>
-    </section>  
+            </div>
+        </section>
+    </a>
 </main>
-</form>
 <footer>
     <img class="logo" src="./app/images/pangologo.png" />
     &copy; Pangolins <?php echo date('Y'); ?>
