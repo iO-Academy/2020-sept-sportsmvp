@@ -53,7 +53,6 @@ class DBImport
         $query = $this->pdo->prepare($createTables);
         $query -> execute();
 
-
         $countries = $apiData["countries"];
         foreach ($countries as $country) {
             $query = $this->pdo->prepare("INSERT INTO `countries` (`id`, `name`)
