@@ -6,49 +6,40 @@ class DBImport
     public function __construct()
     {
         $this->pdo = new PDO ("mysql:host=db; dbname=test", "root", "password");
-        $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     }
 
     public function storeData()
     {
-        $curlConnection = curl_init();
-        curl_setopt($curlConnection, CURLOPT_URL, 'https://dev.maydenacademy.co.uk/resources/sports_teams/sports.json');
-        curl_setopt($curlConnection, CURLOPT_RETURNTRANSFER, true);
-        $apiData = curl_exec($curlConnection);
-        curl_close($curlConnection);
-        $apiData = json_decode($apiData, true);
-
-    $createTables = "
-        DROP TABLE IF EXISTS `countries`;
-                        
-        CREATE TABLE `countries` (
-        `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-        `name` varchar(255) DEFAULT '',
-        PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-        
-        DROP TABLE IF EXISTS `sports`;
-        
-        CREATE TABLE `sports` (
-        `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-        `name` varchar(255) DEFAULT NULL,
-        PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-        
-        
-        DROP TABLE IF EXISTS `teams`;
-        
-        CREATE TABLE `teams` (
-        `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-        `name` varchar(255) DEFAULT NULL,
-        `sport` int(11) DEFAULT NULL,
-        `country` int(11) DEFAULT NULL,
-        `photo` varchar(255) DEFAULT NULL,
-        `team_color` varchar(255) DEFAULT NULL,
-        `desc` varchar(500) DEFAULT NULL,
-        PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-    ";
+        $createTables = "
+            DROP TABLE IF EXISTS `countries`;
+                            
+            CREATE TABLE `countries` (
+            `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+            `name` varchar(255) DEFAULT '',
+            PRIMARY KEY (`id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            
+            DROP TABLE IF EXISTS `sports`;
+            
+            CREATE TABLE `sports` (
+            `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+            `name` varchar(255) DEFAULT NULL,
+            PRIMARY KEY (`id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            
+            DROP TABLE IF EXISTS `teams`;
+            
+            CREATE TABLE `teams` (
+            `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+            `name` varchar(255) DEFAULT NULL,
+            `sport` int(11) DEFAULT NULL,
+            `country` int(11) DEFAULT NULL,
+            `photo` varchar(255) DEFAULT NULL,
+            `team_color` varchar(255) DEFAULT NULL,
+            `desc` varchar(500) DEFAULT NULL,
+            PRIMARY KEY (`id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+        ";
 
         $query = $this->pdo->prepare($createTables);
         $query -> execute();
@@ -85,7 +76,3 @@ class DBImport
         }
     }
 }
-
-$db = new DBImport();
-$db ->storeData();
-
