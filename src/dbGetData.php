@@ -2,7 +2,6 @@
 namespace TheRealMVP;
 use PDO;
 
-require_once 'dbConn.php';
 
 /**Pulls info from the database
  *
