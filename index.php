@@ -15,7 +15,7 @@
     <h1>The Real MVP</h1>
 </header>
 <main>
-    <a href="#">
+    <a href="detail.php?team=">
         <section>
             <h2>FC Barcelona</h2>
             <div class="content">

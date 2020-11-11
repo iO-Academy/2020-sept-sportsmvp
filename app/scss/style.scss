@@ -1,17 +1,17 @@
-$primary-color: #0b0041;
+$primary-color: #090026;
 $secondary-color: #eeeeee;
 $highlight-color: #064EEB;
 
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed%7CRoboto+Slab:700');
 
 body {
-  background-image: url('https://source.unsplash.com/1600x900/?sport,basketball,football,games');
+  background-image: url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
   background-color: $primary-color;
   background-blend-mode: color-dodge;
-  min-height: 100vh;
+  min-height: 95vh;
   color: $secondary-color;
   font-family: 'Roboto Slab', serif;
   text-align: center;
@@ -26,17 +26,14 @@ h1 {
   line-height: 100px;
   letter-spacing: 1rem;
   color: $primary-color;
-  text-shadow: -2px -2px 0 white, 2px -2px 0 white,
-    -2px 2px 0 white, 2px 2px 0 white;
+  text-shadow: -2px -2px 0 $secondary-color, 2px -2px 0 $secondary-color, -2px 2px 0 $secondary-color, 2px 2px 0 $secondary-color;
 }
 
 main {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(375px, 1fr)
-  );
-  margin: 50px;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  margin: auto;
+  max-width: 95vw;
 
   a {
     color: $secondary-color;
@@ -51,14 +48,16 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    filter: brightness(80%) grayscale(50%);
     cursor: pointer;
     transition: 0.5s;
+    border: 1px solid $highlight-color;
 
     &:hover {
-      filter: brightness(100%) grayscale(0);
       h2 {
         background: $highlight-color;
+      }
+      img {
+        filter: none;
       }
     }
 
@@ -70,8 +69,8 @@ main {
       line-height: 50px;
       font-size: 1.4rem;
       color: $secondary-color;
-      background: $primary-color;
-
+      background: #1c0075;
+      transition: 0.5s;
     }
 
     .content {
@@ -88,6 +87,7 @@ main {
       width: 100px;
       height: 100px;
       object-fit: contain;
+      filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(170deg) saturate(600%) contrast(0.8);
     }
 
     ul {
@@ -115,7 +115,7 @@ footer {
 
 @media only screen and (max-width: 600px) {
   main {
-    margin: 0;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 
     section {
       margin: 0 0 50px 0;
