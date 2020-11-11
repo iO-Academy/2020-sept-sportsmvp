@@ -36,36 +36,26 @@ main {
   margin: auto;
   max-width: 95vw;
   &.detailPage {
+    max-width: 60vw;
     grid-template-columns: 1fr;
     p {
       line-height: 1.5em;
     }
   }
+
   a {
     color: $secondary-color;
     text-decoration: none;
   }
 
   section {
-    margin: 16px;
     padding: 10px 10px 30px 10px;
     background-color: $primary-color;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
-    transition: 0.5s;
     border: 1px solid $highlight-color;
-
-    &:hover {
-      h2 {
-        background: $highlight-color;
-      }
-      img {
-        filter: none;
-      }
-    }
 
     h2 {
       width: 100%;
@@ -76,7 +66,6 @@ main {
       font-size: 1.4rem;
       color: $secondary-color;
       background: #1c0075;
-      transition: 0.5s;
     }
 
     .content {
@@ -93,7 +82,6 @@ main {
       width: 100px;
       height: 100px;
       object-fit: contain;
-      filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(170deg) saturate(600%) contrast(0.8);
     }
 
     ul {
@@ -102,6 +90,26 @@ main {
       font-size: 0.8rem;
       line-height: 1.4rem;
       text-align: left;
+    }
+  }
+
+  .all {
+    cursor: pointer;
+    transition: 0.5s;
+    margin: 16px;
+    &:hover {
+      h2 {
+        background: $highlight-color;
+      }
+      img {
+        filter: none;
+      }
+    }
+    h2 {
+      transition: 0.5s;
+    }
+    img {
+      filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(170deg) saturate(600%) contrast(0.8);
     }
   }
 }
