@@ -34,7 +34,12 @@ main {
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   margin: auto;
   max-width: 95vw;
-
+  &.detailPage {
+    grid-template-columns: 1fr;
+    p {
+      line-height: 1.5em;
+    }
+  }
   a {
     color: $secondary-color;
     text-decoration: none;
@@ -111,6 +116,13 @@ footer {
     width: 50px;
     padding: 10px;
   }
+}
+
+.homeButton {
+  position: absolute;
+  top: 60px;
+  left: 100px;
+  padding: 10px;
 }
 
 @media only screen and (max-width: 600px) {
