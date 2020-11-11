@@ -21,21 +21,21 @@ $teamObject = \TheRealMVP\TeamHydrator::getTeam($_GET['team']);
     <body>
         <?php require_once './vendor/autoload.php'; ?>
         <header>
-            <button class="homeButton"><a href="index.php">HOME</a></button>
-            <h1>The Real MVP</h1>
+            <a href="index.php" tabindex="1"><button class="homeButton">HOME</button></a>
+            <h1 tabindex="2">The Real MVP</h1>
         </header>
         <main class="detailPage">
             <section>
-                <h2><?php echo $teamObject->name ?? '' ?></h2>
+                <h2 tabindex="3"><?php echo $teamObject->name ?? '' ?></h2>
                 <div class="content">
-                    <img src="<?php echo $teamObject->photo ?? '' ?>" />
-                    <ul>
+                    <img tabindex="4" src="<?php echo $teamObject->photo ?? '' ?>" />
+                    <ul tabindex="5">
                         <li>Sport: <?php echo $teamObject->sport ?? '' ?></li>
                         <li>Country: <?php echo $teamObject->country ?? '' ?></li>
                         <li>Colours: <?php echo $teamObject->team_color ?? '' ?></li>
                     </ul>
                 </div>
-                <p><?php echo $teamObject->desc ?? '' ?></p>
+                <p tabindex="6"><?php echo $teamObject->desc ?? '' ?></p>
             </section>
         </main>
         <footer>
