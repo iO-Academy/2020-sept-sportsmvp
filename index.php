@@ -16,7 +16,7 @@
         </header>
         <main>
             <a href="detail.php?team=">
-                <section>
+                <section class="all">
                     <h2>FC Barcelona</h2>
                     <div class="content">
                         <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/canucks.png" />
@@ -28,21 +28,8 @@
                     </div>
                 </section>
             </a>
-            <a href="#">
-                <section>
-                    <h2>Man U</h2>
-                    <div class="content">
-                        <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/fcb.png" />
-                        <ul>
-                            <li>Sport: Football</li>
-                            <li>Country: UK</li>
-                            <li>Team colours: Red/Yellow</li>
-                        </ul>
-                    </div>
-                </section>
-            </a>
-            <a href="#">
-                <section>
+            <a href="detail.php?team=">
+                <section class="all">
                     <h2>FC Barcelona</h2>
                     <div class="content">
                         <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/canucks.png" />
@@ -54,24 +41,11 @@
                     </div>
                 </section>
             </a>
-            <a href="#">
-                <section>
-                    <h2>Man U</h2>
-                    <div class="content">
-                        <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/fcb.png" />
-                        <ul>
-                            <li>Sport: Football</li>
-                            <li>Country: UK</li>
-                            <li>Team colours: Red/Yellow</li>
-                        </ul>
-                    </div>
-                </section>
-            </a>
-            <a href="#">
-                <section>
+            <a href="detail.php?team=">
+                <section class="all">
                     <h2>FC Barcelona</h2>
                     <div class="content">
-                        <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/man_utd.png" />
+                        <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/canucks.png" />
                         <ul>
                             <li>Sport: Football</li>
                             <li>Country: UK</li>
@@ -80,11 +54,24 @@
                     </div>
                 </section>
             </a>
-            <a href="#">
-                <section>
-                    <h2>Man U</h2>
+            <a href="detail.php?team=">
+                <section class="all">
+                    <h2>FC Barcelona</h2>
                     <div class="content">
-                        <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/fcb.png" />
+                        <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/canucks.png" />
+                        <ul>
+                            <li>Sport: Football</li>
+                            <li>Country: UK</li>
+                            <li>Team colours: Red/Yellow</li>
+                        </ul>
+                    </div>
+                </section>
+            </a>
+            <a href="detail.php?team=">
+                <section class="all">
+                    <h2>FC Barcelona</h2>
+                    <div class="content">
+                        <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/canucks.png" />
                         <ul>
                             <li>Sport: Football</li>
                             <li>Country: UK</li>

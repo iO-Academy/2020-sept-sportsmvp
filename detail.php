@@ -25,18 +25,18 @@ $teamObject = \TheRealMVP\TeamHydrator::getTeam($_GET['team']);
             <h1>The Real MVP</h1>
         </header>
         <main class="detailPage">
-                <section class="details">
-                    <h2><?php echo $teamObject->name ?? '' ?></h2>
-                    <div class="content">
-                        <img src="<?php echo $teamObject->photo ?? '' ?>" />
-                        <ul>
-                            <li>Sport: <?php echo $teamObject->sport ?? '' ?></li>
-                            <li>Country: <?php echo $teamObject->country ?? '' ?></li>
-                            <li>Colours: <?php echo $teamObject->team_color ?? '' ?></li>
-                        </ul>
-                    </div>
-                    <p><?php echo $teamObject->desc ?? '' ?></p>
-                </section>
+            <section>
+                <h2><?php echo $teamObject->name ?? '' ?></h2>
+                <div class="content">
+                    <img src="<?php echo $teamObject->photo ?? '' ?>" />
+                    <ul>
+                        <li>Sport: <?php echo $teamObject->sport ?? '' ?></li>
+                        <li>Country: <?php echo $teamObject->country ?? '' ?></li>
+                        <li>Colours: <?php echo $teamObject->team_color ?? '' ?></li>
+                    </ul>
+                </div>
+                <p><?php echo $teamObject->desc ?? '' ?></p>
+            </section>
         </main>
         <footer>
             <img class="logo" src="./app/images/pangologo.png" />
