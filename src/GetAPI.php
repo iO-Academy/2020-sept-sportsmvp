@@ -2,9 +2,9 @@
 
 namespace TheRealMVP;
 
-
 class GetAPI
 {
+    private array $json;
     public function __construct()
     {
         $curlConnection = curl_init();
@@ -12,6 +12,16 @@ class GetAPI
         curl_setopt($curlConnection, CURLOPT_RETURNTRANSFER, true);
         $apiData = curl_exec($curlConnection);
         curl_close($curlConnection);
-        $json = json_decode($apiData, true);
+        $this->json = json_decode($apiData, true);
+    }
+
+    /**
+     * Getter method - able to access the json data outside
+     *
+     * @return array|mixed
+     */
+    public function getJson()
+    {
+        return $this->json;
     }
 }
