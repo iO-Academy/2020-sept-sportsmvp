@@ -4,7 +4,7 @@ $apiObj = new \TheRealMVP\GetAPI();
 $apiData = $apiObj->getJson();
 $DB = new \TheRealMVP\DBImport();
 $DB->storeData($apiData);
-$teamObject = \TheRealMVP\TeamHydrator::getTeam(1);
+$teamObject = \TheRealMVP\TeamHydrator::getTeam($_GET['team']);
 
 ?>
 <!DOCTYPE HTML>
@@ -25,17 +25,17 @@ $teamObject = \TheRealMVP\TeamHydrator::getTeam(1);
             <h1>The Real MVP</h1>
         </header>
         <main class="detailPage">
-                <section>
-                    <h2><?php echo $teamObject->name ?></h2>
+                <section class="details">
+                    <h2><?php echo $teamObject->name ?? '' ?></h2>
                     <div class="content">
-                        <img src="<?php echo $teamObject->photo ?>" />
+                        <img src="<?php echo $teamObject->photo ?? '' ?>" />
                         <ul>
-                            <li>Sport: <?php echo $teamObject->sport ?></li>
-                            <li>Country: <?php echo $teamObject->country ?></li>
-                            <li>Colours: <?php echo $teamObject->team_color ?></li>
+                            <li>Sport: <?php echo $teamObject->sport ?? '' ?></li>
+                            <li>Country: <?php echo $teamObject->country ?? '' ?></li>
+                            <li>Colours: <?php echo $teamObject->team_color ?? '' ?></li>
                         </ul>
                     </div>
-                    <p><?php echo $teamObject->desc ?></p>
+                    <p><?php echo $teamObject->desc ?? '' ?></p>
                 </section>
         </main>
         <footer>

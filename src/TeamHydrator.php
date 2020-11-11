@@ -27,7 +27,7 @@ class TeamHydrator {
      *
      * @return object
      */
-    public static function getTeam($id) : object
+    public static function getTeam($id)
     {
         $pdo = new \PDO('mysql:host=db; dbname=TheRealMVP', 'root', 'password');
         $active_query = $pdo->prepare("SELECT teams.`id`, teams.`name`, teams.`photo`, teams.`team_color`, teams.`desc`, sports.`name` AS `sport`, countries.`name` AS `country`
