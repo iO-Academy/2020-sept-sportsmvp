@@ -3,6 +3,7 @@ $secondary-color: #eeeeee;
 $highlight-color: #064EEB;
 
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed%7CRoboto+Slab:700');
+@import "_detail";
 
 body {
   background-image: url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
@@ -116,13 +117,6 @@ footer {
     width: 50px;
     padding: 10px;
   }
-}
-
-.homeButton {
-  position: absolute;
-  top: 60px;
-  left: 100px;
-  padding: 10px;
 }
 
 @media only screen and (max-width: 600px) {

@@ -12,7 +12,7 @@
     <body>
         <?php require_once './vendor/autoload.php'; ?>
         <header>
-            <button class="homeButton">HOME</button>
+            <button class="homeButton"><a href="index.php">HOME</a></button>
             <h1>The Real MVP</h1>
         </header>
         <main class="detailPage">
