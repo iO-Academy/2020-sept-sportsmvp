@@ -1,14 +1,30 @@
 <?php
 
+namespace TheRealMVP;
+
 class DBImport
 {
     protected $pdo;
+
+    /**
+     * DBImport constructor.
+     *
+     * Creates new PDO object
+     */
     public function __construct()
     {
-        $this->pdo = new PDO ("mysql:host=db; dbname=test", "root", "password");
+        $this->pdo = new \PDO ("mysql:host=db; dbname=test", "root", "password");
     }
 
-    public function storeData()
+    /**
+     * Drops all tables and recreates them
+     *
+     * Populates all tables
+     *
+     * @param $apiData
+     *                Array of data from api
+     */
+    public function storeData(array $apiData): void
     {
         $createTables = "
             DROP TABLE IF EXISTS `countries`;
