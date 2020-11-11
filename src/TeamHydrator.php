@@ -10,7 +10,7 @@ class TeamHydrator {
      */
     public static function getData() : array
     {
-        $pdo = new \PDO('mysql:host=db; dbname=test', 'root', 'password');
+        $pdo = new \PDO('mysql:host=db; dbname=TheRealMVP', 'root', 'password');
         $active_query = $pdo->prepare("SELECT teams.`name`, teams.`photo`, teams.`team_color`, teams.`desc`, sports.`name` AS `sport`, countries.`name` AS `country`
         FROM `teams` 
         INNER JOIN `sports` ON teams.`sport`= sports.`id`
