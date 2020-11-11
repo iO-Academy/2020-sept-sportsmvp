@@ -10,89 +10,25 @@
         <link type='text/css' rel='stylesheet' href='./app/css/style.css' />
     </head>
     <body>
-        <?php require_once './vendor/autoload.php'; ?>
+        <?php
+
+use TheRealMVP\DBImport;
+use TheRealMVP\DisplayData;
+use TheRealMVP\GetAPI;
+use TheRealMVP\TeamHydrator;
+
+require_once './vendor/autoload.php'; ?>
         <header>
             <h1>The Real MVP</h1>
         </header>
         <main>
-            <a href="detail.php?team=">
-                <section>
-                    <h2>FC Barcelona</h2>
-                    <div class="content">
-                        <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/canucks.png" />
-                        <ul>
-                            <li>Sport: Football</li>
-                            <li>Country: UK</li>
-                            <li>Team colours: Red/Yellow</li>
-                        </ul>
-                    </div>
-                </section>
-            </a>
-            <a href="#">
-                <section>
-                    <h2>Man U</h2>
-                    <div class="content">
-                        <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/fcb.png" />
-                        <ul>
-                            <li>Sport: Football</li>
-                            <li>Country: UK</li>
-                            <li>Team colours: Red/Yellow</li>
-                        </ul>
-                    </div>
-                </section>
-            </a>
-            <a href="#">
-                <section>
-                    <h2>FC Barcelona</h2>
-                    <div class="content">
-                        <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/canucks.png" />
-                        <ul>
-                            <li>Sport: Football</li>
-                            <li>Country: UK</li>
-                            <li>Team colours: Red/Yellow</li>
-                        </ul>
-                    </div>
-                </section>
-            </a>
-            <a href="#">
-                <section>
-                    <h2>Man U</h2>
-                    <div class="content">
-                        <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/fcb.png" />
-                        <ul>
-                            <li>Sport: Football</li>
-                            <li>Country: UK</li>
-                            <li>Team colours: Red/Yellow</li>
-                        </ul>
-                    </div>
-                </section>
-            </a>
-            <a href="#">
-                <section>
-                    <h2>FC Barcelona</h2>
-                    <div class="content">
-                        <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/man_utd.png" />
-                        <ul>
-                            <li>Sport: Football</li>
-                            <li>Country: UK</li>
-                            <li>Team colours: Red/Yellow</li>
-                        </ul>
-                    </div>
-                </section>
-            </a>
-            <a href="#">
-                <section>
-                    <h2>Man U</h2>
-                    <div class="content">
-                        <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/fcb.png" />
-                        <ul>
-                            <li>Sport: Football</li>
-                            <li>Country: UK</li>
-                            <li>Team colours: Red/Yellow</li>
-                        </ul>
-                    </div>
-                </section>
-            </a>
+                <?php 
+                $api = new GetAPI();
+                $db = new DBImport();
+                $db->storeData($api->getJson());
+                $hydrator = TeamHydrator::getData();
+                $teams = new DisplayData();
+                $teams->displayAllTeams($hydrator); ?>
         </main>
         <footer>
             <img class="logo" src="./app/images/pangologo.png" />

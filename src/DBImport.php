@@ -13,7 +13,7 @@ class DBImport
      */
     public function __construct()
     {
-        $this->pdo = new \PDO ("mysql:host=db; dbname=test", "root", "password");
+        $this->pdo = new \PDO ("mysql:host=db; dbname=TheRealMVP", "root", "password");
     }
 
     /**
