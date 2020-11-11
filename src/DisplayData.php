@@ -9,26 +9,28 @@ class DisplayData
      *
      * @param  mixed $data
      * 
-     * @return void
+     * @return string
      */
-    public function displayAllTeams(array $data) : void
+    public function displayAllTeams(array $data) : string
     {
-       foreach($data as $team){
-         echo '<a href="detail.php?team='
-         . $team->id
-         . '"><section role="button" tabindex="1"><h2 tabindex="1">' 
-         . $team->name 
+        $teamString = '';
+        foreach($data as $team){
+         $teamString .= '<a href="detail.php?team='
+         . $team->getId()
+         . '"><section role="button" tabindex="1"><h2 tabindex="1">'
+         . $team->getName()
          . '</h2><div class="content"><img tabindex="1" alt="Team logo for '
-         . $team->name
+         . $team->getName()
          . '" src="'
-         . $team->photo
+         . $team->getPhoto()
          . '"/><ul tabindex="1"><li >Sport: '
-         . $team->sport 
+         . $team->getSport()
          . '</li><li>Country: '
-         . $team->country
+         . $team->getCountry()
          . '</li><li>Team Colours: '
-         . $team->team_color
-         . '</li></ul></div></section></a>';      
+         . $team->getTeamColor()
+         . '</li></ul></div></section></a>';
        }
+        return $teamString;
     }
 }

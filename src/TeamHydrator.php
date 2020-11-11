@@ -21,6 +21,3 @@ class TeamHydrator
         return $data = $active_query->fetchAll();
     }
 }
-
-
-

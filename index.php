@@ -28,7 +28,7 @@ require_once './vendor/autoload.php'; ?>
                 $db->storeData($api->getJson());
                 $hydrator = TeamHydrator::getData();
                 $teams = new DisplayData();
-                $teams->displayAllTeams($hydrator); ?>
+                echo $teams->displayAllTeams($hydrator); ?>
         </main>
         <footer>
             <img class="logo" src="./app/images/pangologo.png" />
