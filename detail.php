@@ -1,3 +1,12 @@
+<?php
+require_once './vendor/autoload.php';
+$apiObj = new \TheRealMVP\GetAPI();
+$apiData = $apiObj->getJson();
+$DB = new \TheRealMVP\DBImport();
+$DB->storeData($apiData);
+$teamObject = \TheRealMVP\TeamHydrator::getTeam(1);
+
+?>
 <!DOCTYPE HTML>
 <html lang='en'>
     <head>
@@ -16,20 +25,18 @@
             <h1>The Real MVP</h1>
         </header>
         <main class="detailPage">
-            <a href="detail.php?team=">
                 <section>
-                    <h2>FC Barcelona</h2>
+                    <h2><?php echo $teamObject->name ?></h2>
                     <div class="content">
-                        <img src="https://dev.maydenacademy.co.uk/resources/sports_teams/canucks.png" />
+                        <img src="<?php echo $teamObject->photo ?>" />
                         <ul>
-                            <li>Sport: Football</li>
-                            <li>Country: UK</li>
-                            <li>Team colours: Red/Yellow</li>
+                            <li>Sport: <?php echo $teamObject->sport ?></li>
+                            <li>Country: <?php echo $teamObject->country ?></li>
+                            <li>Colours: <?php echo $teamObject->team_color ?></li>
                         </ul>
                     </div>
-                    <p>"Futbol Club Barcelona, commonly referred to as Barcelona and colloquially known as Barça, is a Spanish professional football club based in Barcelona, that competes in the La Liga, the top flight of Spanish football."</p>
+                    <p><?php echo $teamObject->desc ?></p>
                 </section>
-            </a>
         </main>
         <footer>
             <img class="logo" src="./app/images/pangologo.png" />

@@ -3,6 +3,7 @@
 namespace TheRealMVP;
 
 class Team {
+    public int $id;
     public string $name;
     public string $photo;
     public string $sport;
