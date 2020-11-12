@@ -25,7 +25,7 @@ require_once './vendor/autoload.php'; ?>
                 <?php 
                 $api = new GetAPI();
                 $db = new DBImport();
-                $db->storeData($api->getJson());
+                $db->storeData($api->getJson($api->curlConnection));
                 $hydrator = TeamHydrator::getData();
                 echo DisplayData::displayAllTeams($hydrator); ?>
         </main>
