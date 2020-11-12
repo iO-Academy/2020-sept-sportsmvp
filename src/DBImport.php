@@ -15,16 +15,7 @@ class DBImport
         $this->pdoConnection = $pdoConnection;
     }
 
-    /**
-     * Drops all tables and recreates them
-     *
-     * Populates all tables
-     *
-     * @param $apiData
-     *                Array of data from api
-     */
-    public function storeData(array $apiData): void
-    {
+    public function dropTablesAndCreateTables() {
         $createTables = "
             DROP TABLE IF EXISTS `countries`;
                             
@@ -58,7 +49,18 @@ class DBImport
 
         $query = $this->pdoConnection->prepare($createTables);
         $query -> execute();
+    }
 
+    /**
+     * Drops all tables and recreates them
+     *
+     * Populates all tables
+     *
+     * @param $apiData
+     *                Array of data from api
+     */
+    public function storeData(array $apiData): void
+    {
         $countries = $apiData["countries"];
         foreach ($countries as $country) {
             $query = $this->pdoConnection->prepare("INSERT INTO `countries` (`id`, `name`)
