@@ -1,8 +1,8 @@
 <?php
 
-namespace TheRealMVP;
+namespace TheRealMVP\Entities;
 
-class Sport
+class Country
 {
     protected int $id;
     protected string $name;

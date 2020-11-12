@@ -1,8 +1,6 @@
 <?php
 
-namespace TheRealMVP;
-
-use function Composer\Autoload\includeFile;
+namespace TheRealMVP\DisplayHelpers;
 
 class DisplayData
 {    
@@ -13,7 +11,7 @@ class DisplayData
      * 
      * @return string
      */
-    public static function displayAllTeams(array $data) : string
+    public static function displayAllTeams(array $data): string
     {
         $teamString = '';
         foreach($data as $team) {

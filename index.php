@@ -1,25 +1,25 @@
 <?php
-session_start();
 
+session_start();
 $_SESSION['sport'] = $_GET['sport'] ?? $_SESSION['sport'];
 $_SESSION['country'] = $_GET['country'] ?? $_SESSION['country'];
 
-use TheRealMVP\DBImport;
-use TheRealMVP\DisplayData;
-use TheRealMVP\GetAPI;
-use TheRealMVP\TeamHydrator;
-use TheRealMVP\SportHydrator;
-use TheRealMVP\CountryHydrator;
-use TheRealMVP\DisplayFilter;
+use TheRealMVP\Importers\PDO;
+use TheRealMVP\Importers\GetAPI;
+use TheRealMVP\Hydrators\TeamHydrator;
+use TheRealMVP\Hydrators\SportHydrator;
+use TheRealMVP\Hydrators\CountryHydrator;
+use TheRealMVP\DisplayHelpers\DisplayFilter;
+use TheRealMVP\DisplayHelpers\DisplayData;
 
 require_once './vendor/autoload.php';
 
 $api = new GetAPI();
-$db = new DBImport();
-$db->storeData($api->getJson());
-$hydrator = TeamHydrator::getData();
-$sportHydrator = SportHydrator::getData();
-$countryHydrator = CountryHydrator::getData();
+$pdoConnection = PDO::createPDO();
+$hydrator = TeamHydrator::getData($pdoConnection);
+$sportHydrator = SportHydrator::getData($pdoConnection);
+$countryHydrator = CountryHydrator::getData($pdoConnection);
+
 ?>
 
 <!DOCTYPE HTML>
