@@ -17,7 +17,7 @@ class DBImport
     public function __construct(\PDO $pdoConnection, GetAPI $APIConnection)
     {
         $this->pdoConnection = $pdoConnection;
-        $this->curlConnection = $APIConnection;
+        $this->APIConnection = $APIConnection;
     }
 
     /**
@@ -65,7 +65,7 @@ class DBImport
      */
     public function storeData(): void
     {
-        $apiData = $this->curlConnection->getJson();
+        $apiData = $this->APIConnection->getJson();
         $countries = $apiData["countries"];
         foreach ($countries as $country) {
             $query = $this->pdoConnection->prepare("INSERT INTO `countries` (`id`, `name`)
