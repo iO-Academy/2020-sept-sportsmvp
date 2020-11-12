@@ -28,16 +28,14 @@ class DisplayDataTest extends TestCase
             ->method('getTeamColor')
             ->willReturn('Red/Yellow');
 
-        $DisplayData = new \TheRealMVP\DisplayData();
-        $result = $DisplayData->displayAllTeams([$TeamMock]);
+        $result = \TheRealMVP\DisplayData::displayAllTeams([$TeamMock]);
         $expected = '<a href="detail.php?team=1"><section role="button" tabindex="1"><h2 tabindex="1">Manchester United</h2><div class="content"><img tabindex="1" alt="Team logo for Manchester United" src="https://dev.maydenacademy.co.uk/resources/sports_teams/man_utd.png"/><ul tabindex="1"><li >Sport: Football</li><li>Country: United Kingdom</li><li>Team Colours: Red/Yellow</li></ul></div></section></a>';
         $this->assertEquals($expected, $result);
     }
 
     public function testDisplayDataFailure()
     {
-        $DisplayData = new \TheRealMVP\DisplayData();
         $this->expectException(TypeError::class);
-        $result = $DisplayData->displayAllTeams('hello');
+        $result = \TheRealMVP\DisplayData::displayAllTeams('hello');
     }
 }

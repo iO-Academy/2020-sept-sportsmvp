@@ -11,7 +11,7 @@ class DisplayData
      * 
      * @return string
      */
-    public function displayAllTeams(array $data) : string
+    public static function displayAllTeams(array $data) : string
     {
         $teamString = '';
         foreach($data as $team){
