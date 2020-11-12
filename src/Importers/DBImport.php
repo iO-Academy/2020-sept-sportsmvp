@@ -5,19 +5,19 @@ namespace TheRealMVP\Importers;
 class DBImport
 {
     protected \PDO $pdoConnection;
-    protected GetAPI $curlConnection;
+    protected GetAPI $APIConnection;
 
     /**
      * DBImport constructor - takes in a PDO connection and saves it locally to be used elsewhere in code
      * Takes in a new GetAPI object and saves it locally
      *
      * @param \PDO   $pdoConnection
-     * @param GetAPI $curlConnection
+     * @param GetAPI $APIConnection
      */
-    public function __construct(\PDO $pdoConnection, GetAPI $curlConnection)
+    public function __construct(\PDO $pdoConnection, GetAPI $APIConnection)
     {
         $this->pdoConnection = $pdoConnection;
-        $this->curlConnection = $curlConnection;
+        $this->curlConnection = $APIConnection;
     }
 
     /**
