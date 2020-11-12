@@ -5,11 +5,11 @@ namespace TheRealMVP\Importer;
 class DBImport
 {
     private \PDO $pdoConnection;
-    private array $apiData;
+    private GetAPI $curlConnection;
 
     /**
      * DBImport constructor - takes in a PDO connection and saves it locally to be used elsewhere in code
-     * Takes in a new GetAPI object, calls it's function getJson and stores the API Json as an array in local variable $apiData
+     * Takes in a new GetAPI object and saves it locally
      *
      * @param \PDO   $pdoConnection
      * @param GetAPI $curlConnection
@@ -17,7 +17,7 @@ class DBImport
     public function __construct(\PDO $pdoConnection, GetAPI $curlConnection)
     {
         $this->pdoConnection = $pdoConnection;
-        $this->apiData = $curlConnection->getJson();
+        $this->curlConnection = $curlConnection;
     }
 
     /**
@@ -65,7 +65,7 @@ class DBImport
      */
     public function storeData(): void
     {
-        $apiData = $this->apiData;
+        $apiData = $this->curlConnection->getJson();
         $countries = $apiData["countries"];
         foreach ($countries as $country) {
             $query = $this->pdoConnection->prepare("INSERT INTO `countries` (`id`, `name`)
