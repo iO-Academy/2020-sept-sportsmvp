@@ -1,6 +1,6 @@
 <?php
 
-namespace TheRealMVP\Importer;
+namespace TheRealMVP\Importers;
 
 class PDO
 {

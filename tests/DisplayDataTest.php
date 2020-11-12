@@ -4,7 +4,7 @@ require_once '../vendor/autoload.php';
 
 use PHPUnit\Framework\TestCase;
 use TheRealMVP\Entities\Team;
-use TheRealMVP\DisplayHelper\DisplayData;
+use TheRealMVP\DisplayHelpers\DisplayData;
 
 class DisplayDataTest extends TestCase
 {

@@ -1,7 +1,7 @@
 <?php
 
-use TheRealMVP\Importer\PDO;
-use TheRealMVP\DisplayHelper\DisplayData;
+use TheRealMVP\Importers\PDO;
+use TheRealMVP\DisplayHelpers\DisplayData;
 use TheRealMVP\Hydrators\TeamHydrator;
 
 require_once './vendor/autoload.php';
