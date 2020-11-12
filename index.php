@@ -1,11 +1,15 @@
 <?php
 session_start();
+$_SESSION['sport'] = $_GET['sport'] ?? "";
+$_SESSION['country'] = $_GET['country'] ?? "";
+
 use TheRealMVP\DBImport;
 use TheRealMVP\DisplayData;
 use TheRealMVP\GetAPI;
 use TheRealMVP\TeamHydrator;
 use TheRealMVP\SportHydrator;
-use TheRealMVP\DisplaySport;
+use TheRealMVP\CountryHydrator;
+use TheRealMVP\DisplayFilter;
 
 require_once './vendor/autoload.php';
 
@@ -14,6 +18,7 @@ $db = new DBImport();
 $db->storeData($api->getJson());
 $hydrator = TeamHydrator::getData();
 $sportHydrator = SportHydrator::getData();
+$countryHydrator = CountryHydrator::getData();
 ?>
 
 <!DOCTYPE HTML>
@@ -35,11 +40,14 @@ $sportHydrator = SportHydrator::getData();
             <label for="filter">Filter by</label>
             <select name="sport">
                 <option value="">All Sports</option>
-               <?php echo DisplaySport::displayAllSport($sportHydrator); ?>
+                <?php echo DisplayFilter::displayFilter($sportHydrator); ?>
+            </select>
+            <select name="country">
+                <option value="">All Countries</option>
+                <?php echo DisplayFilter::displayFilter($countryHydrator); ?>
             </select>
         <input class="submit" type="submit" value="Submit">
         <input type="submit" value="Clear">
-       
         </form>
         <main>
                 <?php echo DisplayData::displayAllTeams($hydrator); ?>
