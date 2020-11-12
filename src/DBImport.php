@@ -4,16 +4,15 @@ namespace TheRealMVP;
 
 class DBImport
 {
-    protected $pdo;
+    private \PDO $pdoConnection;
 
-    /**
-     * DBImport constructor.
+    /** DBImport constructor - saves PDO connection object as local variable
      *
-     * Creates new PDO object
+     * @param $pdoConnection
      */
-    public function __construct()
+    public function __construct(\PDO $pdoConnection)
     {
-        $this->pdo = new \PDO ("mysql:host=db; dbname=TheRealMVP", "root", "password");
+        $this->pdoConnection = $pdoConnection;
     }
 
     /**
@@ -57,30 +56,30 @@ class DBImport
             ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
         ";
 
-        $query = $this->pdo->prepare($createTables);
+        $query = $this->pdoConnection->prepare($createTables);
         $query -> execute();
 
         $countries = $apiData["countries"];
         foreach ($countries as $country) {
-            $query = $this->pdo->prepare("INSERT INTO `countries` (`id`, `name`)
+            $query = $this->pdoConnection->prepare("INSERT INTO `countries` (`id`, `name`)
                     VALUES (:id, :countryname);");
             $query->bindParam(':id', $country['id']);
             $query->bindParam(':countryname', $country['name']);
             $query->execute();
         }
 
-        $sports= $apiData["sports"];
+        $sports = $apiData["sports"];
         foreach ($sports as $sport) {
-            $query = $this->pdo->prepare("INSERT INTO `sports` (`id`, `name`)
+            $query = $this->pdoConnection->prepare("INSERT INTO `sports` (`id`, `name`)
                     VALUES (:id, :sportname);");
             $query->bindParam(':id', $sport['id']);
             $query->bindParam(':sportname', $sport['name']);
             $query->execute();
         }
 
-        $teams= $apiData["teams"];
+        $teams = $apiData["teams"];
         foreach ($teams as $team) {
-            $query = $this->pdo->prepare("INSERT INTO `teams` (`name`,`sport`,`country`,`photo`, `team_color`, `desc`)
+            $query = $this->pdoConnection->prepare("INSERT INTO `teams` (`name`,`sport`,`country`,`photo`, `team_color`, `desc`)
                     VALUES (:teamname, :sport, :country, :photo,:teamcolor, :teamdesc);");
             $query->bindParam(':teamname', $team['name']);
             $query->bindParam(':sport', $team['sport']);

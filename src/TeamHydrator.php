@@ -4,15 +4,28 @@ namespace TheRealMVP;
 
 class TeamHydrator 
 {
+    private \PDO $pdoConnection;
+
+    /**
+     * TeamHydrator constructor - saves PDO connection object as local variable
+     *
+     * @param $pdoConnection
+     */
+    public function __construct(\PDO $pdoConnection)
+    {
+        $this->pdoConnection = $pdoConnection;
+    }
+
     /**
      * create database connection and retrieves data and returns an array of team objects
      *
+     * @param $pdoConnection
+     *
      * @return array
      */
-    public static function getData() : array
+    public static function getData(\PDO $pdoConnection) : array
     {
-        $pdo = new \PDO('mysql:host=db; dbname=TheRealMVP', 'root', 'password');
-        $active_query = $pdo->prepare("SELECT teams.`id`, teams.`name`, teams.`photo`, teams.`team_color`, teams.`desc`, sports.`name` AS `sport`, countries.`name` AS `country`
+        $active_query = $pdoConnection->prepare("SELECT teams.`id`, teams.`name`, teams.`photo`, teams.`team_color`, teams.`desc`, sports.`name` AS `sport`, countries.`name` AS `country`
         FROM `teams` 
         INNER JOIN `sports` ON teams.`sport`= sports.`id`
         INNER JOIN `countries` ON teams.`country`=countries.`id`;");

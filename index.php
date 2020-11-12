@@ -24,9 +24,10 @@ require_once './vendor/autoload.php'; ?>
         <main>
                 <?php 
                 $api = new GetAPI();
-                $db = new DBImport();
+                $pdoConnection = \TheRealMVP\PDO::createPDO();
+                $db = new DBImport($pdoConnection);
                 $db->storeData($api->getJson($api->curlConnection));
-                $hydrator = TeamHydrator::getData();
+                $hydrator = TeamHydrator::getData($pdoConnection);
                 echo DisplayData::displayAllTeams($hydrator); ?>
         </main>
         <footer>
