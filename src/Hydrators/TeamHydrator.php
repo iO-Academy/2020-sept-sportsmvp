@@ -42,7 +42,7 @@ class TeamHydrator
      *
      * @return object
      */
-    public static function getTeam(int $id, \PDO $pdoConnection): object
+    public static function getTeam(int $id, \PDO $pdoConnection): Team
     {
         $active_query = $pdoConnection->prepare("SELECT teams.`id`, teams.`name`, teams.`photo`, teams.`team_color`, teams.`desc`, sports.`name` AS `sport`, countries.`name` AS `country`
         FROM `teams` 

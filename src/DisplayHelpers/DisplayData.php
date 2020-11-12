@@ -3,6 +3,7 @@
 namespace TheRealMVP\DisplayHelpers;
 
 use TheRealMVP\Hydrators\TeamHydrator;
+use TheRealMVP\Entities\Team;
 
 class DisplayData
 {    
@@ -43,7 +44,7 @@ class DisplayData
      *
      * @return string
      */
-    public static function displayOneTeam(object $teamObject): string
+    public static function displayOneTeam(Team $teamObject): string
     {
         return '<section><h2 tabindex="3">'
         . ($teamObject->getName() ?? '')

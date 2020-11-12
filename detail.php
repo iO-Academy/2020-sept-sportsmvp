@@ -9,9 +9,6 @@ use TheRealMVP\DisplayHelpers\DisplayData;
 require_once './vendor/autoload.php';
 
 $pdoConnection = PDO::createPDO();
-$db = new DBImport($pdoConnection, new GetAPI());
-$db->dropTablesAndCreateTables();
-$db->storeData();
 $teamObject = TeamHydrator::getTeam($_GET['team'], $pdoConnection);
 
 ?>
