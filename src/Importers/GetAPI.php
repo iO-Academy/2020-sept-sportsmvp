@@ -4,13 +4,13 @@ namespace TheRealMVP\Importers;
 
 class GetAPI
 {
-    private $curlConnection;
+    private $APIConnection;
     /**
      * GetAPI constructor.
      */
     public function __construct()
     {
-        $this->curlConnection = curl_init();
+        $this->APIConnection = curl_init();
     }
 
 
@@ -21,9 +21,9 @@ class GetAPI
      */
     public function getJson(): array
     {
-        curl_setopt($this->curlConnection, CURLOPT_URL, 'https://dev.maydenacademy.co.uk/resources/sports_teams/sports.json');
-        curl_setopt($this->curlConnection, CURLOPT_RETURNTRANSFER, true);
-        $apiData = curl_exec($this->curlConnection);
+        curl_setopt($this->APIConnection, CURLOPT_URL, 'https://dev.maydenacademy.co.uk/resources/sports_teams/sports.json');
+        curl_setopt($this->APIConnection, CURLOPT_RETURNTRANSFER, true);
+        $apiData = curl_exec($this->APIConnection);
         return json_decode($apiData, true);
     }
 
