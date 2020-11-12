@@ -1,7 +1,6 @@
 <?php
 
-require_once '../src/DisplayData.php';
-require_once '../src/Team.php';
+require_once '../vendor/autoload.php';
 
 use PHPUnit\Framework\TestCase;
 
