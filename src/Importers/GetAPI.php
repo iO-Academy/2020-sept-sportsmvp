@@ -33,6 +33,6 @@ class GetAPI
      */
     public function __destruct()
     {
-        curl_close($this->curlConnection);
+        curl_close($this->APIConnection);
     }
 }
