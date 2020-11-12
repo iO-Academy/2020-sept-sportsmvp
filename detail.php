@@ -7,8 +7,8 @@ use TheRealMVP\Importers\GetAPI;
 use TheRealMVP\DisplayHelpers\DisplayData;
 
 require_once './vendor/autoload.php';
+require_once 'importer.php';
 
-$pdoConnection = PDO::createPDO();
 $teamObject = TeamHydrator::getTeam($_GET['team'], $pdoConnection);
 
 ?>
