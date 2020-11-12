@@ -24,7 +24,7 @@ class TeamHydrator
      *
      * @return array
      */
-    public static function getData(\PDO $pdoConnection) : array
+    public static function getData(\PDO $pdoConnection): array
     {
         $active_query = $pdoConnection->prepare("SELECT teams.`id`, teams.`name`, teams.`photo`, teams.`team_color`, teams.`desc`, sports.`name` AS `sport`, countries.`name` AS `country`
         FROM `teams` 

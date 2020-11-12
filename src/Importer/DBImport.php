@@ -23,7 +23,7 @@ class DBImport
     /**
      * Drops all tables and then initialises them
      */
-    public function dropTablesAndCreateTables() : void
+    public function dropTablesAndCreateTables(): void
     {
         $createTables = "
             DROP TABLE IF EXISTS `countries`;
@@ -57,7 +57,7 @@ class DBImport
         ";
 
         $query = $this->pdoConnection->prepare($createTables);
-        $query -> execute();
+        $query->execute();
     }
 
     /**

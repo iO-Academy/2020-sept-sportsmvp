@@ -1,6 +1,5 @@
 <?php
-use TheRealMVP\Importer\DBImport;
-use TheRealMVP\Importer\GetAPI;
+
 use TheRealMVP\Importer\PDO;
 use TheRealMVP\DisplayHelper\DisplayData;
 use TheRealMVP\Hydrators\TeamHydrator;
@@ -8,9 +7,6 @@ use TheRealMVP\Hydrators\TeamHydrator;
 require_once './vendor/autoload.php';
 
 $pdoConnection = PDO::createPDO();
-$db = new DBImport($pdoConnection, new GetAPI());
-$db->dropTablesAndCreateTables();
-$db->storeData();
 $hydrator = TeamHydrator::getData($pdoConnection);
 ?>
 
