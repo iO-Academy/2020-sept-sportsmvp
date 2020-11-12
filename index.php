@@ -1,3 +1,15 @@
+<?php
+
+use TheRealMVP\Importers\PDO;
+use TheRealMVP\DisplayHelpers\DisplayData;
+use TheRealMVP\Hydrators\TeamHydrator;
+
+require_once './vendor/autoload.php';
+
+$pdoConnection = PDO::createPDO();
+$hydrator = TeamHydrator::getData($pdoConnection);
+?>
+
 <!DOCTYPE HTML>
 <html lang='en'>
     <head>
@@ -10,11 +22,11 @@
         <link type='text/css' rel='stylesheet' href='./app/css/style.css' />
     </head>
     <body>
-        <?php require_once './vendor/autoload.php'; ?>
         <header>
             <h1>The Real MVP</h1>
         </header>
         <main>
+                <?php echo DisplayData::displayAllTeams($hydrator); ?>
         </main>
         <footer>
             <img class="logo" src="./app/images/pangologo.png" />
