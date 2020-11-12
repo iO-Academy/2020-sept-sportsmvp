@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 use TheRealMVP\DBImport;
 use TheRealMVP\DisplayData;
 use TheRealMVP\GetAPI;
@@ -14,7 +14,6 @@ $db = new DBImport();
 $db->storeData($api->getJson());
 $hydrator = TeamHydrator::getData();
 $sportHydrator = SportHydrator::getData();
-
 ?>
 
 <!DOCTYPE HTML>
@@ -32,9 +31,9 @@ $sportHydrator = SportHydrator::getData();
         <header>
             <h1>The Real MVP</h1>
         </header>
-        <form action="#" method="GET" name="filter" id="filter">
+        <form method="GET">
             <label for="filter">Filter by</label>
-            <select>
+            <select name="sport">
                 <option value="">All Sports</option>
                <?php echo DisplaySport::displayAllSport($sportHydrator); ?>
             </select>
