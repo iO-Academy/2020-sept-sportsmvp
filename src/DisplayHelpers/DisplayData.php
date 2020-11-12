@@ -2,6 +2,8 @@
 
 namespace TheRealMVP\DisplayHelpers;
 
+use TheRealMVP\Hydrators\TeamHydrator;
+
 class DisplayData
 {    
     /**
@@ -32,5 +34,29 @@ class DisplayData
          . '</li></ul></div></section></a>';
        }
         return $teamString;
+    }
+
+    /**
+     * Displays one team detailed data and injects into html
+     *
+     * @param $teamObject
+     *
+     * @return string
+     */
+    public static function displayOneTeam(object $teamObject): string
+    {
+        return '<section><h2 tabindex="3">'
+        . ($teamObject->getName() ?? '')
+        . '</h2><div class="content"><img tabindex="4" src="'
+        . ($teamObject->getPhoto() ?? '')
+        . '" /><ul tabindex="5"><li>Sport: '
+        . ($teamObject->getSport() ?? '')
+        . '</li><li>Country: '
+        . ($teamObject->getCountry() ?? '')
+        . '</li><li>Colours: '
+        . ($teamObject->getTeamColor() ?? '')
+        . '</li></ul></div><p tabindex="6">'
+        . ($teamObject->getDesc() ?? '')
+        . '</p></section>';
     }
 }

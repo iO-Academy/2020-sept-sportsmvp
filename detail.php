@@ -4,12 +4,14 @@ use TheRealMVP\Importers\PDO;
 use TheRealMVP\Hydrators\TeamHydrator;
 use TheRealMVP\Importers\DBImport;
 use TheRealMVP\Importers\GetAPI;
+use TheRealMVP\DisplayHelpers\DisplayData;
 
 require_once './vendor/autoload.php';
 
 $pdoConnection = PDO::createPDO();
-$DB = new DBImport($pdoConnection, new GetAPI());
-$DB->storeData();
+$db = new DBImport($pdoConnection, new GetAPI());
+$db->dropTablesAndCreateTables();
+$db->storeData();
 $teamObject = TeamHydrator::getTeam($_GET['team'], $pdoConnection);
 
 ?>
@@ -30,18 +32,7 @@ $teamObject = TeamHydrator::getTeam($_GET['team'], $pdoConnection);
             <h1 tabindex="2">The Real MVP</h1>
         </header>
         <main class="detailPage">
-            <section>
-                <h2 tabindex="3"><?php echo $teamObject->getName() ?? '' ?></h2>
-                <div class="content">
-                    <img tabindex="4" src="<?php echo $teamObject->getPhoto() ?? '' ?>" />
-                    <ul tabindex="5">
-                        <li>Sport: <?php echo $teamObject->getSport() ?? '' ?></li>
-                        <li>Country: <?php echo $teamObject->getCountry() ?? '' ?></li>
-                        <li>Colours: <?php echo $teamObject->getTeamColor() ?? '' ?></li>
-                    </ul>
-                </div>
-                <p tabindex="6"><?php echo $teamObject->getDesc() ?? '' ?></p>
-            </section>
+            <?php echo DisplayData::displayOneTeam($teamObject); ?>
         </main>
         <footer>
             <img class="logo" src="./app/images/pangologo.png" />
