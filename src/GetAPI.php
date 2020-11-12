@@ -11,22 +11,18 @@ class GetAPI
      */
     public function __construct()
     {
-        $curlConnection = curl_init();
-        $this->curlConnection = $curlConnection;
+        $this->curlConnection = curl_init();
     }
 
     /**
-     * Retrieves API data and returns json
-     *
-     * @return array|mixed
+     * Retrieves API data and returns json array
      */
-    public function getJson($curlConnection)
+    public function getJson()
     {
-        curl_setopt($curlConnection, CURLOPT_URL, 'https://dev.maydenacademy.co.uk/resources/sports_teams/sports.json');
-        curl_setopt($curlConnection, CURLOPT_RETURNTRANSFER, true);
-        $apiData = curl_exec($curlConnection);
-        $json = json_decode($apiData, true);
-        return $json;
+        curl_setopt($this->curlConnection, CURLOPT_URL, 'https://dev.maydenacademy.co.uk/resources/sports_teams/sports.json');
+        curl_setopt($this->curlConnection, CURLOPT_RETURNTRANSFER, true);
+        $apiData = curl_exec($this->curlConnection);
+        return json_decode($apiData, true);
     }
 
 
@@ -35,7 +31,6 @@ class GetAPI
      */
     public function __destruct()
     {
-        $curlConnection = $this->curlConnection;
-        curl_close($curlConnection);
+        curl_close($this->curlConnection);
     }
 }
