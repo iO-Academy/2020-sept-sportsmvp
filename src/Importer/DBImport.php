@@ -1,6 +1,6 @@
 <?php
 
-namespace TheRealMVP;
+namespace TheRealMVP\Importer;
 
 class DBImport
 {

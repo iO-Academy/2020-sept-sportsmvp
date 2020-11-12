@@ -1,6 +1,7 @@
 <?php
 
-namespace TheRealMVP;
+namespace TheRealMVP\Hydrators;
+use TheRealMVP\Entities\Team;
 
 class TeamHydrator 
 {
