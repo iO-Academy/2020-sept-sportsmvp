@@ -4,8 +4,8 @@ namespace TheRealMVP\Importers;
 
 class DBImport
 {
-    private \PDO $pdoConnection;
-    private GetAPI $curlConnection;
+    protected \PDO $pdoConnection;
+    protected GetAPI $curlConnection;
 
     /**
      * DBImport constructor - takes in a PDO connection and saves it locally to be used elsewhere in code

@@ -4,7 +4,7 @@ namespace TheRealMVP\Importers;
 
 class GetAPI
 {
-    public $curlConnection;
+    private $curlConnection;
     /**
      * GetAPI constructor.
      */
