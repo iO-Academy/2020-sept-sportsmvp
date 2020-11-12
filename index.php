@@ -1,7 +1,8 @@
 <?php
 session_start();
-$_SESSION['sport'] = $_GET['sport'] ?? "";
-$_SESSION['country'] = $_GET['country'] ?? "";
+
+$_SESSION['sport'] = $_GET['sport'] ?? $_SESSION['sport'];
+$_SESSION['country'] = $_GET['country'] ?? $_SESSION['country'];
 
 use TheRealMVP\DBImport;
 use TheRealMVP\DisplayData;
@@ -40,14 +41,13 @@ $countryHydrator = CountryHydrator::getData();
             <label for="filter">Filter by</label>
             <select name="sport">
                 <option value="">All Sports</option>
-                <?php echo DisplayFilter::displayFilter($sportHydrator); ?>
+                <?php echo DisplayFilter::displayFilter('sport', $sportHydrator); ?>
             </select>
             <select name="country">
                 <option value="">All Countries</option>
-                <?php echo DisplayFilter::displayFilter($countryHydrator); ?>
+                <?php echo DisplayFilter::displayFilter('country', $countryHydrator); ?>
             </select>
         <input class="submit" type="submit" value="Submit">
-        <input type="submit" value="Clear">
         </form>
         <main>
                 <?php echo DisplayData::displayAllTeams($hydrator); ?>
