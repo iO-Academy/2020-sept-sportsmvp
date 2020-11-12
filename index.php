@@ -1,3 +1,18 @@
+<?php
+use TheRealMVP\DBImport;
+use TheRealMVP\DisplayData;
+use TheRealMVP\GetAPI;
+use TheRealMVP\TeamHydrator;
+
+require_once './vendor/autoload.php';
+
+$pdoConnection = \TheRealMVP\PDO::createPDO();
+$db = new DBImport($pdoConnection, new GetAPI());
+$db->dropTablesAndCreateTables();
+$db->storeData();
+$hydrator = TeamHydrator::getData($pdoConnection);
+?>
+
 <!DOCTYPE HTML>
 <html lang='en'>
     <head>
@@ -10,25 +25,11 @@
         <link type='text/css' rel='stylesheet' href='./app/css/style.css' />
     </head>
     <body>
-        <?php
-
-use TheRealMVP\DBImport;
-use TheRealMVP\DisplayData;
-use TheRealMVP\GetAPI;
-use TheRealMVP\TeamHydrator;
-
-require_once './vendor/autoload.php'; ?>
         <header>
             <h1>The Real MVP</h1>
         </header>
         <main>
-                <?php 
-                $pdoConnection = \TheRealMVP\PDO::createPDO();
-                $db = new DBImport($pdoConnection, new GetAPI());
-                $db->dropTablesAndCreateTables();
-                $db->storeData();
-                $hydrator = TeamHydrator::getData($pdoConnection);
-                echo DisplayData::displayAllTeams($hydrator); ?>
+                <?php echo DisplayData::displayAllTeams($hydrator); ?>
         </main>
         <footer>
             <img class="logo" src="./app/images/pangologo.png" />

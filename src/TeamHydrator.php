@@ -31,6 +31,6 @@ class TeamHydrator
         INNER JOIN `countries` ON teams.`country`=countries.`id`;");
         $active_query->setFetchMode(\PDO::FETCH_CLASS, Team::class);
         $active_query->execute();
-        return $data = $active_query->fetchAll();
+        return $active_query->fetchAll();
     }
 }
