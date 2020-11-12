@@ -1,19 +1,25 @@
 <?php
+
 session_start();
-use TheRealMVP\DBImport;
-use TheRealMVP\DisplayData;
-use TheRealMVP\GetAPI;
-use TheRealMVP\TeamHydrator;
-use TheRealMVP\SportHydrator;
-use TheRealMVP\DisplaySport;
+use TheRealMVP\Importers\PDO;
+use TheRealMVP\Importers\DBImport;
+use TheRealMVP\Importers\GetAPI;
+use TheRealMVP\Hydrators\SportHydrator;
+use TheRealMVP\Hydrators\TeamHydrator;
+use TheRealMVP\DisplayHelpers\DisplayData;
+use TheRealMVP\DisplayHelpers\DisplaySport;
 
 require_once './vendor/autoload.php';
 
 $api = new GetAPI();
-$db = new DBImport();
-$db->storeData($api->getJson());
-$hydrator = TeamHydrator::getData();
-$sportHydrator = SportHydrator::getData();
+$pdoConnection = PDO::createPDO();
+$db = new DBImport($pdoConnection, $api);
+$db->dropTablesAndCreateTables();
+$db->storeData();
+$hydrator = TeamHydrator::getData($pdoConnection);
+$sportHydrator = SportHydrator::getData($pdoConnection);
+$hydrator = TeamHydrator::getData($pdoConnection);
+
 ?>
 
 <!DOCTYPE HTML>

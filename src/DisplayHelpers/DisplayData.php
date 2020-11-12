@@ -1,6 +1,6 @@
 <?php
 
-namespace TheRealMVP;
+namespace TheRealMVP\DisplayHelpers;
 
 use function Composer\Autoload\includeFile;
 
@@ -13,7 +13,7 @@ class DisplayData
      * 
      * @return string
      */
-    public static function displayAllTeams(array $data) : string
+    public static function displayAllTeams(array $data): string
     {
         $_SESSION['sport'] = $_GET['sport'] ?? "";
         $teamString = '';

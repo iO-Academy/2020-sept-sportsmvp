@@ -3,5 +3,10 @@
     "psr-4": {
       "TheRealMVP\\": "src/"
     }
+  },
+  "require": {
+    "ext-curl": "*",
+    "ext-json": "*",
+    "ext-pdo": "*"
   }
 }

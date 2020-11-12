@@ -1,30 +1,29 @@
 <?php
 
-namespace TheRealMVP;
+namespace TheRealMVP\Importers;
 
 class DBImport
 {
-    protected $pdo;
+    protected \PDO $pdoConnection;
+    protected GetAPI $APIConnection;
 
     /**
-     * DBImport constructor.
+     * DBImport constructor - takes in a PDO connection and saves it locally to be used elsewhere in code
+     * Takes in a new GetAPI object and saves it locally
      *
-     * Creates new PDO object
+     * @param \PDO   $pdoConnection
+     * @param GetAPI $APIConnection
      */
-    public function __construct()
+    public function __construct(\PDO $pdoConnection, GetAPI $APIConnection)
     {
-        $this->pdo = new \PDO ("mysql:host=db; dbname=TheRealMVP", "root", "password");
+        $this->pdoConnection = $pdoConnection;
+        $this->APIConnection = $APIConnection;
     }
 
     /**
-     * Drops all tables and recreates them
-     *
-     * Populates all tables
-     *
-     * @param $apiData
-     *                Array of data from api
+     * Drops all tables and then initialises them
      */
-    public function storeData(array $apiData): void
+    public function dropTablesAndCreateTables(): void
     {
         $createTables = "
             DROP TABLE IF EXISTS `countries`;
@@ -57,30 +56,37 @@ class DBImport
             ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
         ";
 
-        $query = $this->pdo->prepare($createTables);
-        $query -> execute();
+        $query = $this->pdoConnection->prepare($createTables);
+        $query->execute();
+    }
 
+    /**
+     * Populates all tables with data from the API
+     */
+    public function storeData(): void
+    {
+        $apiData = $this->APIConnection->getJson();
         $countries = $apiData["countries"];
         foreach ($countries as $country) {
-            $query = $this->pdo->prepare("INSERT INTO `countries` (`id`, `name`)
+            $query = $this->pdoConnection->prepare("INSERT INTO `countries` (`id`, `name`)
                     VALUES (:id, :countryname);");
             $query->bindParam(':id', $country['id']);
             $query->bindParam(':countryname', $country['name']);
             $query->execute();
         }
 
-        $sports= $apiData["sports"];
+        $sports = $apiData["sports"];
         foreach ($sports as $sport) {
-            $query = $this->pdo->prepare("INSERT INTO `sports` (`id`, `name`)
+            $query = $this->pdoConnection->prepare("INSERT INTO `sports` (`id`, `name`)
                     VALUES (:id, :sportname);");
             $query->bindParam(':id', $sport['id']);
             $query->bindParam(':sportname', $sport['name']);
             $query->execute();
         }
 
-        $teams= $apiData["teams"];
+        $teams = $apiData["teams"];
         foreach ($teams as $team) {
-            $query = $this->pdo->prepare("INSERT INTO `teams` (`name`,`sport`,`country`,`photo`, `team_color`, `desc`)
+            $query = $this->pdoConnection->prepare("INSERT INTO `teams` (`name`,`sport`,`country`,`photo`, `team_color`, `desc`)
                     VALUES (:teamname, :sport, :country, :photo,:teamcolor, :teamdesc);");
             $query->bindParam(':teamname', $team['name']);
             $query->bindParam(':sport', $team['sport']);

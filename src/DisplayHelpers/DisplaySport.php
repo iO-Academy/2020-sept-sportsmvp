@@ -1,6 +1,6 @@
 <?php
 
-namespace TheRealMVP;
+namespace TheRealMVP\DisplayHelpers;
 
 class DisplaySport
 {
