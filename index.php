@@ -4,6 +4,7 @@ session_start();
 $_SESSION['sport'] = $_GET['sport'] ?? $_SESSION['sport'];
 $_SESSION['country'] = $_GET['country'] ?? $_SESSION['country'];
 
+use TheRealMVP\Importers\PDO;
 use TheRealMVP\Hydrators\TeamHydrator;
 use TheRealMVP\Hydrators\SportHydrator;
 use TheRealMVP\Hydrators\CountryHydrator;
@@ -11,8 +12,8 @@ use TheRealMVP\DisplayHelpers\DisplayFilter;
 use TheRealMVP\DisplayHelpers\DisplayData;
 
 require_once './vendor/autoload.php';
-require_once 'importer.php';
 
+$pdoConnection = PDO::createPDO();
 $hydrator = TeamHydrator::getData($pdoConnection);
 $sportHydrator = SportHydrator::getData($pdoConnection);
 $countryHydrator = CountryHydrator::getData($pdoConnection);

@@ -5,18 +5,6 @@ use TheRealMVP\Entities\Team;
 
 class TeamHydrator 
 {
-    private \PDO $pdoConnection;
-
-    /**
-     * TeamHydrator constructor - saves PDO connection object as local variable
-     *
-     * @param $pdoConnection
-     */
-    public function __construct(\PDO $pdoConnection)
-    {
-        $this->pdoConnection = $pdoConnection;
-    }
-
     /**
      * create database connection and retrieves data and returns an array of team objects
      *
@@ -38,9 +26,11 @@ class TeamHydrator
     /**
      * create database connection and retrieves data and returns a single team object
      *
-     * @param $id
+     * @param int  $id
      *
-     * @return object
+     * @param \PDO $pdoConnection
+     *
+     * @return Team
      */
     public static function getTeam(int $id, \PDO $pdoConnection): Team
     {
