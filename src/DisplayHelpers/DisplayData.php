@@ -19,7 +19,7 @@ class DisplayData
         $teamString = '';
         foreach($data as $team){
             if ($team->getSportId() === $_SESSION['sport'] || $_SESSION['sport'] === "") {
-                $teamString .= '<a class="all" href="detail.php?team='
+                $teamString .= '<a tabindex="1" class="all" href="detail.php?team='
              . $team->getId()
              . '"><section role="button" tabindex="1"><h2 tabindex="1">'
              . $team->getName()
