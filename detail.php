@@ -2,8 +2,6 @@
 
 use TheRealMVP\Importers\PDO;
 use TheRealMVP\Hydrators\TeamHydrator;
-use TheRealMVP\Importers\DBImport;
-use TheRealMVP\Importers\GetAPI;
 use TheRealMVP\DisplayHelpers\DisplayData;
 
 require_once './vendor/autoload.php';

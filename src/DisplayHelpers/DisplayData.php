@@ -15,27 +15,33 @@ class DisplayData
      */
     public static function displayAllTeams(array $data): string
     {
-        $_SESSION['sport'] = $_GET['sport'] ?? "";
         $teamString = '';
-        foreach($data as $team){
-            if ($team->getSportId() === $_SESSION['sport'] || $_SESSION['sport'] === "") {
-                $teamString .= '<a tabindex="1" class="all" href="detail.php?team='
-             . $team->getId()
-             . '"><section role="button" tabindex="1"><h2 tabindex="1">'
-             . $team->getName()
-             . '</h2><div class="content"><img tabindex="1" alt="Team logo for '
-             . $team->getName()
-             . '" src="'
-             . $team->getPhoto()
-             . '"/><ul tabindex="1"><li >Sport: '
-             . $team->getSport()
-             . '</li><li>Country: '
-             . $team->getCountry()
-             . '</li><li>Team Colours: '
-             . $team->getTeamColor()
-             . '</li></ul></div></section></a>';
+        foreach($data as $team) {
+            if (
+                ($team->getSportId() === $_SESSION['sport'] || $_SESSION['sport'] === "")
+                && ($team->getCountryId() === $_SESSION['country'] || $_SESSION['country'] === "")
+            ) {
+                $teamString .= '<a href="detail.php?team='
+                 . $team->getId()
+                 . '"><section class = "all" role="button" tabindex="1"><h2 tabindex="1">'
+                 . $team->getName()
+                 . '</h2><div class="content"><img tabindex="1" alt="Team logo for '
+                 . $team->getName()
+                 . '" src="'
+                 . $team->getPhoto()
+                 . '"/><ul tabindex="1"><li >Sport: '
+                 . $team->getSport()
+                 . '</li><li>Country: '
+                 . $team->getCountry()
+                 . '</li><li>Team Colours: '
+                 . $team->getTeamColor()
+                 . '</li></ul></div></section></a>';
             }
         }
+        if ($teamString === '') {
+            $teamString = '<div class="noMatch">Nothing matching your request!</div>';
+        }
+
         return $teamString;
     }
 

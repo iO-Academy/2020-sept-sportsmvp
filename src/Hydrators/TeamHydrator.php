@@ -5,18 +5,6 @@ use TheRealMVP\Entities\Team;
 
 class TeamHydrator 
 {
-    private \PDO $pdoConnection;
-
-    /**
-     * TeamHydrator constructor - saves PDO connection object as local variable
-     *
-     * @param $pdoConnection
-     */
-    public function __construct(\PDO $pdoConnection)
-    {
-        $this->pdoConnection = $pdoConnection;
-    }
-
     /**
      * create database connection and retrieves data and returns an array of team objects
      *
@@ -26,7 +14,7 @@ class TeamHydrator
      */
     public static function getData(\PDO $pdoConnection): array
     {
-        $active_query = $pdoConnection->prepare("SELECT teams.`id`, teams.`name`, teams.`photo`, teams.`team_color`, teams.`desc`, sports.`id` AS `sportId`, sports.`name` AS `sport`, countries.`name` AS `country`
+        $active_query = $pdoConnection->prepare("SELECT teams.`id`, teams.`name`, teams.`photo`, teams.`team_color`, teams.`desc`, sports.`id` AS `sportId`, sports.`name` AS `sport`, countries.`id` as `countryId`, countries.`name` AS `country`
         FROM `teams` 
         INNER JOIN `sports` ON teams.`sport`= sports.`id`
         INNER JOIN `countries` ON teams.`country`=countries.`id`;");
@@ -38,9 +26,11 @@ class TeamHydrator
     /**
      * create database connection and retrieves data and returns a single team object
      *
-     * @param $id
+     * @param int  $id
      *
-     * @return object
+     * @param \PDO $pdoConnection
+     *
+     * @return Team
      */
     public static function getTeam(int $id, \PDO $pdoConnection): Team
     {

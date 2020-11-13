@@ -6,7 +6,7 @@ use TheRealMVP\Entities\Sport;
 class SportHydrator
 {
     /**
-     * create database connection and retrieves data and returns an array of team objects
+     * create database connection and retrieves data and returns an array of sport objects
      *
      * @param \PDO $pdoConnection
      *

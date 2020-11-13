@@ -1,18 +1,22 @@
 <?php
 
 session_start();
+$_SESSION['sport'] = $_GET['sport'] ?? $_SESSION['sport'];
+$_SESSION['country'] = $_GET['country'] ?? $_SESSION['country'];
 
 use TheRealMVP\Importers\PDO;
-use TheRealMVP\Hydrators\SportHydrator;
 use TheRealMVP\Hydrators\TeamHydrator;
+use TheRealMVP\Hydrators\SportHydrator;
+use TheRealMVP\Hydrators\CountryHydrator;
+use TheRealMVP\DisplayHelpers\DisplayFilter;
 use TheRealMVP\DisplayHelpers\DisplayData;
-use TheRealMVP\DisplayHelpers\DisplaySport;
 
 require_once './vendor/autoload.php';
 
 $pdoConnection = PDO::createPDO();
 $hydrator = TeamHydrator::getData($pdoConnection);
 $sportHydrator = SportHydrator::getData($pdoConnection);
+$countryHydrator = CountryHydrator::getData($pdoConnection);
 
 ?>
 
@@ -35,11 +39,13 @@ $sportHydrator = SportHydrator::getData($pdoConnection);
             <label for="filter">Filter by</label>
             <select name="sport">
                 <option value="">All Sports</option>
-               <?php echo DisplaySport::displayAllSport($sportHydrator); ?>
+                <?php echo DisplayFilter::displayFilter('sport', $sportHydrator); ?>
+            </select>
+            <select name="country">
+                <option value="">All Countries</option>
+                <?php echo DisplayFilter::displayFilter('country', $countryHydrator); ?>
             </select>
         <input class="submit" type="submit" value="Submit">
-        <input type="submit" value="Clear">
-       
         </form>
         <main>
             <?php echo DisplayData::displayAllTeams($hydrator); ?>

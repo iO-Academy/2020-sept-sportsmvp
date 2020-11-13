@@ -12,6 +12,7 @@ class Team
     protected string $team_color;
     protected string $desc;
     protected string $sportId;
+    protected string $countryId;
 
     /**
      * @return int
@@ -75,5 +76,13 @@ class Team
     public function getSportId(): string
     {
         return $this->sportId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCountryId(): string
+    {
+        return $this->countryId;
     }
 }
