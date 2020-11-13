@@ -1,18 +1,19 @@
 <?php
 
-use TheRealMVP\Importers\DBImport;
-use TheRealMVP\Importers\GetAPI;
+session_start();
+
 use TheRealMVP\Importers\PDO;
-use TheRealMVP\DisplayHelpers\DisplayData;
+use TheRealMVP\Hydrators\SportHydrator;
 use TheRealMVP\Hydrators\TeamHydrator;
+use TheRealMVP\DisplayHelpers\DisplayData;
+use TheRealMVP\DisplayHelpers\DisplaySport;
 
 require_once './vendor/autoload.php';
 
 $pdoConnection = PDO::createPDO();
-$db = new DBImport($pdoConnection, new GetAPI());
-$db->dropTablesAndCreateTables();
-$db->storeData();
 $hydrator = TeamHydrator::getData($pdoConnection);
+$sportHydrator = SportHydrator::getData($pdoConnection);
+
 ?>
 
 <!DOCTYPE HTML>
@@ -30,6 +31,16 @@ $hydrator = TeamHydrator::getData($pdoConnection);
         <header>
             <h1>The Real MVP</h1>
         </header>
+        <form method="GET">
+            <label for="filter">Filter by</label>
+            <select name="sport">
+                <option value="">All Sports</option>
+               <?php echo DisplaySport::displayAllSport($sportHydrator); ?>
+            </select>
+        <input class="submit" type="submit" value="Submit">
+        <input type="submit" value="Clear">
+       
+        </form>
         <main>
             <?php echo DisplayData::displayAllTeams($hydrator); ?>
         </main>

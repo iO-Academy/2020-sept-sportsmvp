@@ -1,0 +1,11 @@
+form {
+  margin-bottom: 40px;
+  * {
+    padding: 2px;
+    margin: 10px 2px;
+  }
+  input[type='submit'].submit {
+    margin-left: 10px;
+  }
+}
+
