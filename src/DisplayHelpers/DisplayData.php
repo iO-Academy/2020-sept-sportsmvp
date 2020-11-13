@@ -22,9 +22,9 @@ class DisplayData
                 ($team->getSportId() === $_SESSION['sport'] || $_SESSION['sport'] === "")
                 && ($team->getCountryId() === $_SESSION['country'] || $_SESSION['country'] === "")
             ) {
-                $teamString .= '<a class= "all" href="detail.php?team='
+                $teamString .= '<a href="detail.php?team='
                  . $team->getId()
-                 . '"><section role="button" tabindex="1"><h2 tabindex="1">'
+                 . '"><section class = "all" role="button" tabindex="1"><h2 tabindex="1">'
                  . $team->getName()
                  . '</h2><div class="content"><img tabindex="1" alt="Team logo for '
                  . $team->getName()
