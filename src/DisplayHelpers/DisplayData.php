@@ -2,7 +2,6 @@
 
 namespace TheRealMVP\DisplayHelpers;
 
-use TheRealMVP\Hydrators\TeamHydrator;
 use TheRealMVP\Entities\Team;
 
 class DisplayData
@@ -42,6 +41,7 @@ class DisplayData
         if ($teamString === '') {
             $teamString = '<div class="noMatch">Nothing matching your request!</div>';
         }
+
         return $teamString;
     }
 

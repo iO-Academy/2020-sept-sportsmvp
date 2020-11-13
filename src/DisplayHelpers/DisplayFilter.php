@@ -15,7 +15,6 @@ class DisplayFilter
     public static function displayFilter(string $type, array $data) : string
     {
         $filterString = '';
-        $selected = '';
         foreach($data as $item){
             if ($_SESSION[$type] == $item->getId()) {
                 $selected = 'selected';
